@@ -13,11 +13,11 @@ namespace BeardedManStudios.Forge.Networking.Unity
 		public GameObject[] ChatManagerNetworkObject = null;
 		public GameObject[] CubeForgeGameNetworkObject = null;
 		public GameObject[] ExampleProximityPlayerNetworkObject = null;
+		public GameObject[] GameManagerNetworkObject = null;
 		public GameObject[] InputListenerNetworkObject = null;
 		public GameObject[] NetworkCameraNetworkObject = null;
 		public GameObject[] PlayerNetworkObject = null;
 		public GameObject[] TestNetworkObject = null;
-		public GameObject[] GameManagerNetworkObject = null;
 
 		private void SetupObjectCreatedEvent()
 		{
@@ -91,6 +91,29 @@ namespace BeardedManStudios.Forge.Networking.Unity
 						if (ExampleProximityPlayerNetworkObject.Length > 0 && ExampleProximityPlayerNetworkObject[obj.CreateCode] != null)
 						{
 							var go = Instantiate(ExampleProximityPlayerNetworkObject[obj.CreateCode]);
+							newObj = go.GetComponent<NetworkBehavior>();
+						}
+					}
+
+					if (newObj == null)
+						return;
+						
+					newObj.Initialize(obj);
+
+					if (objectInitialized != null)
+						objectInitialized(newObj, obj);
+				});
+			}
+			else if (obj is GameManagerNetworkObject)
+			{
+				MainThreadManager.Run(() =>
+				{
+					NetworkBehavior newObj = null;
+					if (!NetworkBehavior.skipAttachIds.TryGetValue(obj.NetworkId, out newObj))
+					{
+						if (GameManagerNetworkObject.Length > 0 && GameManagerNetworkObject[obj.CreateCode] != null)
+						{
+							var go = Instantiate(GameManagerNetworkObject[obj.CreateCode]);
 							newObj = go.GetComponent<NetworkBehavior>();
 						}
 					}
@@ -196,29 +219,6 @@ namespace BeardedManStudios.Forge.Networking.Unity
 						objectInitialized(newObj, obj);
 				});
 			}
-			else if (obj is GameManagerNetworkObject)
-			{
-				MainThreadManager.Run(() =>
-				{
-					NetworkBehavior newObj = null;
-					if (!NetworkBehavior.skipAttachIds.TryGetValue(obj.NetworkId, out newObj))
-					{
-						if (GameManagerNetworkObject.Length > 0 && GameManagerNetworkObject[obj.CreateCode] != null)
-						{
-							var go = Instantiate(GameManagerNetworkObject[obj.CreateCode]);
-							newObj = go.GetComponent<NetworkBehavior>();
-						}
-					}
-
-					if (newObj == null)
-						return;
-						
-					newObj.Initialize(obj);
-
-					if (objectInitialized != null)
-						objectInitialized(newObj, obj);
-				});
-			}
 		}
 
 		private void InitializedObject(INetworkBehavior behavior, NetworkObject obj)
@@ -260,6 +260,18 @@ namespace BeardedManStudios.Forge.Networking.Unity
 			var netBehavior = go.GetComponent<ExampleProximityPlayerBehavior>();
 			var obj = netBehavior.CreateNetworkObject(Networker, index);
 			go.GetComponent<ExampleProximityPlayerBehavior>().networkObject = (ExampleProximityPlayerNetworkObject)obj;
+
+			FinalizeInitialization(go, netBehavior, obj, position, rotation, sendTransform);
+			
+			return netBehavior;
+		}
+		[Obsolete("Use InstantiateGameManager instead, its shorter and easier to type out ;)")]
+		public GameManagerBehavior InstantiateGameManagerNetworkObject(int index = 0, Vector3? position = null, Quaternion? rotation = null, bool sendTransform = true)
+		{
+			var go = Instantiate(GameManagerNetworkObject[index]);
+			var netBehavior = go.GetComponent<GameManagerBehavior>();
+			var obj = netBehavior.CreateNetworkObject(Networker, index);
+			go.GetComponent<GameManagerBehavior>().networkObject = (GameManagerNetworkObject)obj;
 
 			FinalizeInitialization(go, netBehavior, obj, position, rotation, sendTransform);
 			
@@ -308,18 +320,6 @@ namespace BeardedManStudios.Forge.Networking.Unity
 			var netBehavior = go.GetComponent<TestBehavior>();
 			var obj = netBehavior.CreateNetworkObject(Networker, index);
 			go.GetComponent<TestBehavior>().networkObject = (TestNetworkObject)obj;
-
-			FinalizeInitialization(go, netBehavior, obj, position, rotation, sendTransform);
-			
-			return netBehavior;
-		}
-		[Obsolete("Use InstantiateGameManager instead, its shorter and easier to type out ;)")]
-		public GameManagerBehavior InstantiateGameManagerNetworkObject(int index = 0, Vector3? position = null, Quaternion? rotation = null, bool sendTransform = true)
-		{
-			var go = Instantiate(GameManagerNetworkObject[index]);
-			var netBehavior = go.GetComponent<GameManagerBehavior>();
-			var obj = netBehavior.CreateNetworkObject(Networker, index);
-			go.GetComponent<GameManagerBehavior>().networkObject = (GameManagerNetworkObject)obj;
 
 			FinalizeInitialization(go, netBehavior, obj, position, rotation, sendTransform);
 			
@@ -447,6 +447,48 @@ namespace BeardedManStudios.Forge.Networking.Unity
 			}
 
 			go.GetComponent<ExampleProximityPlayerBehavior>().networkObject = (ExampleProximityPlayerNetworkObject)obj;
+
+			FinalizeInitialization(go, netBehavior, obj, position, rotation, sendTransform);
+			
+			return netBehavior;
+		}
+		public GameManagerBehavior InstantiateGameManager(int index = 0, Vector3? position = null, Quaternion? rotation = null, bool sendTransform = true)
+		{
+			var go = Instantiate(GameManagerNetworkObject[index]);
+			var netBehavior = go.GetComponent<GameManagerBehavior>();
+
+			NetworkObject obj = null;
+			if (!sendTransform && position == null && rotation == null)
+				obj = netBehavior.CreateNetworkObject(Networker, index);
+			else
+			{
+				metadata.Clear();
+
+				if (position == null && rotation == null)
+				{
+					metadata.Clear();
+					byte transformFlags = 0x1 | 0x2;
+					ObjectMapper.Instance.MapBytes(metadata, transformFlags);
+					ObjectMapper.Instance.MapBytes(metadata, go.transform.position, go.transform.rotation);
+				}
+				else
+				{
+					byte transformFlags = 0x0;
+					transformFlags |= (byte)(position != null ? 0x1 : 0x0);
+					transformFlags |= (byte)(rotation != null ? 0x2 : 0x0);
+					ObjectMapper.Instance.MapBytes(metadata, transformFlags);
+
+					if (position != null)
+						ObjectMapper.Instance.MapBytes(metadata, position.Value);
+
+					if (rotation != null)
+						ObjectMapper.Instance.MapBytes(metadata, rotation.Value);
+				}
+
+				obj = netBehavior.CreateNetworkObject(Networker, index, metadata.CompressBytes());
+			}
+
+			go.GetComponent<GameManagerBehavior>().networkObject = (GameManagerNetworkObject)obj;
 
 			FinalizeInitialization(go, netBehavior, obj, position, rotation, sendTransform);
 			
@@ -615,48 +657,6 @@ namespace BeardedManStudios.Forge.Networking.Unity
 			}
 
 			go.GetComponent<TestBehavior>().networkObject = (TestNetworkObject)obj;
-
-			FinalizeInitialization(go, netBehavior, obj, position, rotation, sendTransform);
-			
-			return netBehavior;
-		}
-		public GameManagerBehavior InstantiateGameManager(int index = 0, Vector3? position = null, Quaternion? rotation = null, bool sendTransform = true)
-		{
-			var go = Instantiate(GameManagerNetworkObject[index]);
-			var netBehavior = go.GetComponent<GameManagerBehavior>();
-
-			NetworkObject obj = null;
-			if (!sendTransform && position == null && rotation == null)
-				obj = netBehavior.CreateNetworkObject(Networker, index);
-			else
-			{
-				metadata.Clear();
-
-				if (position == null && rotation == null)
-				{
-					metadata.Clear();
-					byte transformFlags = 0x1 | 0x2;
-					ObjectMapper.Instance.MapBytes(metadata, transformFlags);
-					ObjectMapper.Instance.MapBytes(metadata, go.transform.position, go.transform.rotation);
-				}
-				else
-				{
-					byte transformFlags = 0x0;
-					transformFlags |= (byte)(position != null ? 0x1 : 0x0);
-					transformFlags |= (byte)(rotation != null ? 0x2 : 0x0);
-					ObjectMapper.Instance.MapBytes(metadata, transformFlags);
-
-					if (position != null)
-						ObjectMapper.Instance.MapBytes(metadata, position.Value);
-
-					if (rotation != null)
-						ObjectMapper.Instance.MapBytes(metadata, rotation.Value);
-				}
-
-				obj = netBehavior.CreateNetworkObject(Networker, index, metadata.CompressBytes());
-			}
-
-			go.GetComponent<GameManagerBehavior>().networkObject = (GameManagerNetworkObject)obj;
 
 			FinalizeInitialization(go, netBehavior, obj, position, rotation, sendTransform);
 			

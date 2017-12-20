@@ -29,8 +29,11 @@ namespace AuthMovementExample
 
         private InputFrame _currentInput = null;
         private InputListener _inputListener;
-        private uint _lastPredictionFrame = 0;
-        private uint _lastServerFrame = 0;
+
+        // Last frame that was processed locally on this machine
+        private uint _lastLocalFrame = 0;
+        // Last frame that was sent (server)/received (client) on the network
+        private uint _lastNetworkFrame = 0;
 
         private void Awake()
         {
@@ -43,7 +46,11 @@ namespace AuthMovementExample
             // up to date per the last physics update
             if (networkObject.IsServer)
             {
-                if (_currentInput != null) networkObject.frame = _currentInput.frameNumber;
+                if (_lastNetworkFrame < _lastLocalFrame)
+                {
+                    _lastNetworkFrame = _lastLocalFrame;
+                    networkObject.frame = _lastLocalFrame;
+                }
                 networkObject.position = transform.position;
             }
         }
@@ -80,9 +87,9 @@ namespace AuthMovementExample
                 if (_inputListener != null)
                 {
                     // Reconciliation - only do this if the server update is current or new
-                    if (networkObject.frame != 0 && _lastServerFrame <= networkObject.frame)
+                    if (networkObject.frame != 0 && _lastNetworkFrame <= networkObject.frame)
                     {
-                        _lastServerFrame = networkObject.frame;
+                        _lastNetworkFrame = networkObject.frame;
                         Reconcile();
                     }
 
@@ -90,7 +97,7 @@ namespace AuthMovementExample
                     if (_inputListener.FramesToPlay.Count > 0)
                     {
                         InputFrame input = _inputListener.FramesToPlay[0];
-                        _lastPredictionFrame = input.frameNumber;
+                        _lastLocalFrame = input.frameNumber;
                         PlayerUpdate(input);
                         _inputListener.FramesToPlay.RemoveAt(0);
                     }
@@ -108,18 +115,20 @@ namespace AuthMovementExample
                     if (_inputListener.FramesToPlay.Count > 0)
                     {
                         _currentInput = _inputListener.FramesToPlay[0];
-                        
-                        // Try-catch is a good idea to handle weird serialization/deserialization errors
-                        try
-                        {
-                            PlayerUpdate(_currentInput);
-                        }
-                        catch (Exception e)
-                        {
-                            Debug.LogError(e + " (Serverside input processing - Player.cs line 104)");
-                        }
+                        _lastLocalFrame = _currentInput.frameNumber;
                         _inputListener.FramesToPlay.RemoveAt(0);
                     }
+
+                    // Try-catch is a good idea to handle weird serialization/deserialization errors
+                    try
+                    {
+                        PlayerUpdate(_currentInput);
+                    }
+                    catch (Exception e)
+                    {
+                        Debug.LogError(e + " (Serverside input processing - Player.cs line 104)");
+                    }
+
                 }
             }
             #endregion
@@ -133,7 +142,10 @@ namespace AuthMovementExample
         private void PlayerUpdate(InputFrame input)
         {
             _rigidBody.velocity = Vector2.zero;
-            if (input.HasInput) Move(input);
+            if (input != null && input.HasInput)
+            {
+                Move(input);
+            }
         }
 
         private void Reconcile()
@@ -149,7 +161,7 @@ namespace AuthMovementExample
                 foreach (InputFrame input in _inputListener.FramesToReconcile)
                 {
                     // Don't replay frames that haven't been predicted yet if there are any
-                    if (input.frameNumber > _lastPredictionFrame) break;
+                    if (input.frameNumber > _lastLocalFrame) break;
                     PlayerUpdate(input);
                     Physics2D.Simulate(Time.fixedDeltaTime);
                 }

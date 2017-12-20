@@ -5,10 +5,10 @@ using UnityEngine;
 
 namespace BeardedManStudios.Forge.Networking.Generated
 {
-	[GeneratedInterpol("{\"inter\":[0,0,0.15]")]
+	[GeneratedInterpol("{\"inter\":[0,0,0.85]")]
 	public partial class PlayerNetworkObject : NetworkObject
 	{
-		public const int IDENTITY = 6;
+		public const int IDENTITY = 7;
 
 		private byte[] _dirtyFields = new byte[1];
 
@@ -77,7 +77,7 @@ namespace BeardedManStudios.Forge.Networking.Generated
 		}
 		private Vector3 _position;
 		public event FieldEvent<Vector3> positionChanged;
-		public InterpolateVector3 positionInterpolation = new InterpolateVector3() { LerpT = 0.15f, Enabled = true };
+		public InterpolateVector3 positionInterpolation = new InterpolateVector3() { LerpT = 0.85f, Enabled = true };
 		public Vector3 position
 		{
 			get { return _position; }

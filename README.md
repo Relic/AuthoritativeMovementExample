@@ -29,7 +29,9 @@ The main difference is how reconciliation is done in that an RPC is not used to 
 
 Also, some optimizations were done in both the Player and InputListener for reconciliation and when Inputs should be sent.
 
-Additionally, this build is deterministic and Physics2D (not sure about 3D, untested) rigid body physics work just fine as far as I've tested so far.
+Additionally, this build is deterministic and Physics2D (not sure about 3D, untested) rigid body physics work as far as I've tested so far.
+
+This build was tested by me both locally (to/from localhost) and with a server hosted on a Linux VPS with ~100ms ping from my location. Clumsy Lagswitch was used to do further network testing (especially for higher pings).
 
 ## Resources
 
@@ -41,7 +43,13 @@ Additionally, this build is deterministic and Physics2D (not sure about 3D, unte
 
 [Source Multiplayer Networking](https://developer.valvesoftware.com/wiki/Source_Multiplayer_Networking)
 
-## Disclaimer/Issues
+## Known Issues
+
+1. At high pings on the owning client (tested at up to 500ms, noted at 200ms and above) the owning client's reconciliation buffer can eventually become backlogged because of the delay in response from server and slow down the simulation significantly.
+2. At high pings, non-owner clients see choppiness in the interpolation. Smoother interpolation which adapts to the ping is needed.
+3. The server still only processes one input per frame instead of all available inputs. I'd prefer to be able to do multiple inputs per frame but without a way to simulate only a single rigid body in Unity's physics this might prove difficult.
+
+## Disclaimer
 
 This is a demo build and is by no means perfect. Use this at your own risk and take the time to understand how it works. Making your own improvements is encouraged and if you feel that you can contribute something back to this example feel free to contact me on the Forge Networking Discord or submit an issue.
 

@@ -56,6 +56,10 @@ namespace AuthMovementExample
             _lastInputFrame = _inputFrame;
             _inputFrame = new InputFrame()
             {
+                right = Input.GetKey(KeyCode.L) || Input.GetKey(KeyCode.RightArrow),
+                down = Input.GetKey(KeyCode.K) || Input.GetKey(KeyCode.DownArrow),
+                left = Input.GetKey(KeyCode.J) || Input.GetKey(KeyCode.LeftArrow),
+                up = Input.GetKey(KeyCode.I) || Input.GetKey(KeyCode.UpArrow),
                 horizontal = Input.GetAxisRaw("Horizontal"),
                 vertical = Input.GetAxisRaw("Vertical")
             };
