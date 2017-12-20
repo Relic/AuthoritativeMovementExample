@@ -13,7 +13,9 @@ The example shows client-side prediction and reconciliation of inputs, and serve
 
 ## How to use it?
 
-Clone the project and open it in Unity. Import the latest Github version of Forge Networking Remastered (this project uses [this commit](https://github.com/BeardedManStudios/ForgeNetworkingRemastered/commit/9fe861ec6f29751d74a15add1679c6a343e22e89)).
+Clone the project and open it in Unity. Import the latest Github version of Forge Networking Remastered (this project uses [this commit](https://github.com/BeardedManStudios/ForgeNetworkingRemastered/commit/9fe861ec6f29751d74a15add1679c6a343e22e89)). **NOTE: when you import Forge Networking Remastered do NOT import "Assets/Beaded Man Studios Inc/Generated" or you will nuke the generated network object implementations!**
+
+If needed, add the prefabs of the network objects (GameManager, InputListener, Player) to the NetworkManager prefab.
 
 Build and run two or more instances of the build (ensure the two scenes are Forge's MultiplayerMenu.unity and this example's AuthoritativeMovementExample.unity).
 
