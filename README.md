@@ -25,11 +25,11 @@ Host on one instance and then join on the others and you can move on any client 
 
 This project is a very similar implementation to [g-klein's AuthoritativeMovementDemo](https://github.com/g-klein/ForgeAuthoritativeMovementDemo).
 
-The main difference is how reconciliation is done in that an RPC is not used to send the game states processed on the server to the client. Instead the unreliable network object fields are used since missing one or two server updates isn't a big deal.
+The main difference is how reconciliation is done in that an RPC is not used to send the game states processed on the server to the client. Instead the unreliable network object fields are used. Since missing one or two server updates isn't a big deal, RPCs aren't needed.
 
-Also, some optimizations were done in both the Player and InputListener for reconciliation and when Inputs should be sent.
+Also, some optimizations were done in both the Player and InputListener for reconciliation and when/how Inputs should be sent/processed.
 
-Additionally, this build is deterministic and Physics2D (not sure about 3D, untested) rigid body physics work as far as I've tested so far.
+Additionally, this build is deterministic. ~~and Physics2D (not sure about 3D, untested) rigid body physics work as far as I've tested so far.~~ **I've changed the build to decouple Unity's Physics2D. The build now uses a very simple collision detection & resolution system using the Collider2D.OverlapCollider and Collider2D.Distance methods and direct updating of the rigidbody's position. I did this so I could simulate physics on individual objects allowing all inputs in the queue to be processed at once server side.**
 
 This build was tested by me both locally (to/from localhost) and with a server hosted on a Linux VPS with ~100ms ping from my location. Clumsy Lagswitch was used to do further network testing (especially for higher pings).
 
@@ -43,11 +43,20 @@ This build was tested by me both locally (to/from localhost) and with a server h
 
 [Source Multiplayer Networking](https://developer.valvesoftware.com/wiki/Source_Multiplayer_Networking)
 
+## To-do
+
+1. Lag detection & handling - if excessive lag is detected:
+	- The local client should mitigate processing time from excessive reconciliation, wait for the last processed server update and snap to there.
+	- The server should stop processing inputs, extrapolate the player forward along the current movement direction until ping is either lowered (snap to position and start processing inputs again) or too high/too unstable (drop the player).
+
+2. Interpolated error correction - instead of snapping the local client to the server position, interpolate it in the right direction over a few frames to smooth out how the error corrections look for the player. Further work would be to adjust the speed of interpolation by the error size.
+
+3. Add a small time delay to incoming inputs on the server to smooth out processing processing (this may not actually be required, Forge may already do this, but I want to experiement a little time permitting).
+
 ## Known Issues
 
-1. At high pings on the owning client (tested at up to 500ms, noted at 200ms and above) the owning client's reconciliation buffer can eventually become backlogged because of the delay in response from server and slow down the simulation significantly.
-2. At high pings, non-owner clients see choppiness in the interpolation. Smoother interpolation which adapts to the ping is needed.
-3. The server still only processes one input per frame instead of all available inputs. I'd prefer to be able to do multiple inputs per frame but without a way to simulate only a single rigid body in Unity's physics this might prove difficult.
+1. At high pings, non-owner clients see choppiness in the interpolation. Smoother interpolation which adapts to the ping is needed.
+2. Local clients sometimes do not get (A) their networked Player object, (B) their networked InputHandler, (C) both. I used a somewhat hacky method to spawn players to get it working quickly and haven't fixed it yet - solution for now is to restart the client (the server works fine in every case) until it works. Sorry!
 
 ## Disclaimer
 

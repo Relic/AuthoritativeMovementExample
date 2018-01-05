@@ -23,6 +23,9 @@ namespace AuthMovementExample
         #endregion
 
         private Rigidbody2D _rigidBody;
+        private Collider2D _collider2D;
+        private ContactFilter2D _noFilter;
+        private Collider2D[] _collisions = new Collider2D[20];
 
         private bool _setup = false;
         private bool _isLocalOwner = false;
@@ -38,6 +41,8 @@ namespace AuthMovementExample
         private void Awake()
         {
             _rigidBody = GetComponent<Rigidbody2D>();
+            _collider2D = GetComponent<Collider2D>();
+            _noFilter = new ContactFilter2D().NoFilter();
         }
 
         private void Update()
@@ -51,7 +56,7 @@ namespace AuthMovementExample
                     _lastNetworkFrame = _lastLocalFrame;
                     networkObject.frame = _lastLocalFrame;
                 }
-                networkObject.position = transform.position;
+                networkObject.position = _rigidBody.position;
             }
         }
 
@@ -78,7 +83,7 @@ namespace AuthMovementExample
             // Server Authority - snap the position on all clients to the server's position
             if (!networkObject.IsServer)
             {
-                transform.position = networkObject.position;
+                _rigidBody.position = networkObject.position;
             }
 
             // Client owner Reconciliation & Prediction
@@ -117,18 +122,17 @@ namespace AuthMovementExample
                         _currentInput = _inputListener.FramesToPlay[0];
                         _lastLocalFrame = _currentInput.frameNumber;
                         _inputListener.FramesToPlay.RemoveAt(0);
-                    }
 
-                    // Try-catch is a good idea to handle weird serialization/deserialization errors
-                    try
-                    {
-                        PlayerUpdate(_currentInput);
+                        // Try-catch is a good idea to handle weird serialization/deserialization errors
+                        try
+                        {
+                            PlayerUpdate(_currentInput);
+                        }
+                        catch (Exception e)
+                        {
+                            Debug.LogError(e + " (Serverside input processing - Player.cs line 104)");
+                        }
                     }
-                    catch (Exception e)
-                    {
-                        Debug.LogError(e + " (Serverside input processing - Player.cs line 104)");
-                    }
-
                 }
             }
             #endregion
@@ -136,16 +140,34 @@ namespace AuthMovementExample
 
         private void Move(InputFrame input)
         {
-            _rigidBody.velocity = new Vector2(input.horizontal, input.vertical) * Speed;
+            _rigidBody.velocity = new Vector2(input.horizontal, input.vertical) * Speed * Time.fixedDeltaTime;
+            _rigidBody.position += _rigidBody.velocity;
+        }
+
+        private void PhysicsCollisions()
+        {
+            // Collision detection - get a list of colliders the player's collider overlaps with
+            int numColliders = Physics2D.OverlapCollider(_collider2D, _noFilter, _collisions);
+
+            // Collision Resolution - for each of these colliders check if that collider and the player overlap
+            for (int i = 0; i < numColliders; ++i)
+            {
+                ColliderDistance2D overlap = _collider2D.Distance(_collisions[i]);
+
+                // If the colliders overlap move the player
+                if (overlap.isOverlapped) _rigidBody.position += overlap.normal * overlap.distance;
+            }
         }
 
         private void PlayerUpdate(InputFrame input)
         {
+            // Set the velocity to zero, move the player based on the next input, then detect & resolve collisions
             _rigidBody.velocity = Vector2.zero;
             if (input != null && input.HasInput)
             {
                 Move(input);
             }
+            PhysicsCollisions();
         }
 
         private void Reconcile()
@@ -156,16 +178,12 @@ namespace AuthMovementExample
             // Replay them all back to the last input processed by client prediction
             if (_inputListener.FramesToReconcile.Count > 0)
             {
-                // Turn off (and back on) auto simulation for similar reasons to the server
-                Physics2D.autoSimulation = false;
                 foreach (InputFrame input in _inputListener.FramesToReconcile)
                 {
                     // Don't replay frames that haven't been predicted yet if there are any
                     if (input.frameNumber > _lastLocalFrame) break;
                     PlayerUpdate(input);
-                    Physics2D.Simulate(Time.fixedDeltaTime);
                 }
-                Physics2D.autoSimulation = true;
             }
         }
     }
