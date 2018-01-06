@@ -116,8 +116,8 @@ namespace AuthMovementExample
 
                 if (_inputListener != null)
                 {
-                    // Process 1 input each frame - the same rate as the client
-                    if (_inputListener.FramesToPlay.Count > 0)
+                    // Process all available inputs each frame
+                    while (_inputListener.FramesToPlay.Count > 0)
                     {
                         _currentInput = _inputListener.FramesToPlay[0];
                         _lastLocalFrame = _currentInput.frameNumber;
