@@ -31,7 +31,15 @@ Also, some optimizations were done in both the Player and InputListener for reco
 
 Additionally, this build is deterministic. ~~and Physics2D (not sure about 3D, untested) rigid body physics work as far as I've tested so far.~~ **I've changed the build to decouple Unity's Physics2D. The build now uses a very simple collision detection & resolution system using the Collider2D.OverlapCollider and Collider2D.Distance methods and direct updating of the rigidbody's position. I did this so I could simulate physics on individual objects allowing all inputs in the queue to be processed at once server side.**
 
-This build was tested by me both locally (to/from localhost) and with a server hosted on a Linux VPS with ~100ms ping from my location. Clumsy Lagswitch was used to do further network testing (especially for higher pings).
+(Outdated - will do more testing soon.) This build was tested by me both locally (to/from localhost) and with a server hosted on a Linux VPS with ~100ms ping from my location. Clumsy Lagswitch was used to do further network testing (especially for higher pings).
+
+## Changelog
+
+July 13, 2018:
+
+- Added error interpolation for movement to smooth away errors due to networked collision between players if both players are moving.
+- Fixed some bugs (namely the spawning issue which was caused by using the playerConnected event instead of the playerAccepted event for spawning).
+- Refactored code.
 
 ## Resources
 
@@ -43,20 +51,19 @@ This build was tested by me both locally (to/from localhost) and with a server h
 
 [Source Multiplayer Networking](https://developer.valvesoftware.com/wiki/Source_Multiplayer_Networking)
 
+[Fast Paced Multiplayer Implementation: Smooth Server Reconciliation](https://fouramgames.com/blog/fast-paced-multiplayer-implementation-smooth-server-reconciliation#smoothing)
+
 ## To-do
 
 1. Lag detection & handling - if excessive lag is detected:
 	- The local client should mitigate processing time from excessive reconciliation, wait for the last processed server update and snap to there.
 	- The server should stop processing inputs, extrapolate the player forward along the current movement direction until ping is either lowered (snap to position and start processing inputs again) or too high/too unstable (drop the player).
 
-2. Interpolated error correction - instead of snapping the local client to the server position, interpolate it in the right direction over a few frames to smooth out how the error corrections look for the player. Further work would be to adjust the speed of interpolation by the error size.
-
 3. Add a small time delay to incoming inputs on the server to smooth out processing processing (this may not actually be required, Forge may already do this, but I want to experiement a little time permitting).
 
 ## Known Issues
 
 1. At high pings, non-owner clients see choppiness in the interpolation. Smoother interpolation which adapts to the ping is needed.
-2. Local clients sometimes do not get (A) their networked Player object, (B) their networked InputHandler, (C) both. I used a somewhat hacky method to spawn players to get it working quickly and haven't fixed it yet - solution for now is to restart the client (the server works fine in every case) until it works. Sorry!
 
 ## Disclaimer
 
