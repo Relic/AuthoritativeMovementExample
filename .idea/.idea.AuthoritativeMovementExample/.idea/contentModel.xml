@@ -1,0 +1,116 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ContentModelStore">
+    <e p="C:\Users\Trevor\.Rider2018.1\system\resharper-host\local\Transient\ReSharperHost\v12\SolutionCaches\_AuthoritativeMovementExample.712917357.00" t="ExcludeRecursive" />
+    <e p="D:\dev\AuthoritativeMovementExample\AuthoritativeMovementExample" t="IncludeRecursive">
+      <e p="Assembly-CSharp.csproj" t="IncludeRecursive" />
+      <e p="Assets\AuthoritativeMovementExample" t="Include">
+        <e p="script" t="Include">
+          <e p="ByteArray.cs" t="Include" />
+          <e p="GameManager.cs" t="Include" />
+          <e p="InputFrame.cs" t="Include" />
+          <e p="InputListener.cs" t="Include" />
+          <e p="ListExtensions.cs" t="Include" />
+          <e p="Player.cs" t="Include" />
+        </e>
+      </e>
+      <e p="Assets\Bearded Man Studios Inc" t="Include">
+        <e p="Editor" t="Include">
+          <e p="Resources" t="Include">
+            <e p="BMS_Forge_Editor" t="Include">
+              <e p="NetworkBehaviorTemplate.txt" t="Include" />
+              <e p="NetworkManagerTemplate.txt" t="Include" />
+              <e p="NetworkObjectFactoryTemplate.txt" t="Include" />
+              <e p="NetworkObjectTemplate.txt" t="Include" />
+              <e p="StandAloneNetworkBehaviorTemplate.txt" t="Include" />
+              <e p="version.txt" t="Include" />
+            </e>
+          </e>
+        </e>
+        <e p="Examples" t="Include">
+          <e p="Cube Forge" t="Include">
+            <e p="Scripts" t="Include">
+              <e p="CubeForgeGame.cs" t="Include" />
+              <e p="NetCam.cs" t="Include" />
+              <e p="Primitive.cs" t="Include" />
+            </e>
+          </e>
+          <e p="Proximity" t="Include">
+            <e p="ExampleProximityPlayer.cs" t="Include" />
+            <e p="ExampleProximitySpawn.cs" t="Include" />
+          </e>
+        </e>
+        <e p="Generated" t="Include">
+          <e p="NetworkManager.cs" t="Include" />
+          <e p="NetworkObjectFactory.cs" t="Include" />
+          <e p="UserGenerated" t="Include">
+            <e p="ChatManagerBehavior.cs" t="Include" />
+            <e p="ChatManagerNetworkObject.cs" t="Include" />
+            <e p="CubeForgeGameBehavior.cs" t="Include" />
+            <e p="CubeForgeGameNetworkObject.cs" t="Include" />
+            <e p="ExampleProximityPlayerBehavior.cs" t="Include" />
+            <e p="ExampleProximityPlayerNetworkObject.cs" t="Include" />
+            <e p="GameManagerBehavior.cs" t="Include" />
+            <e p="GameManagerNetworkObject.cs" t="Include" />
+            <e p="InputListenerBehavior.cs" t="Include" />
+            <e p="InputListenerNetworkObject.cs" t="Include" />
+            <e p="NetworkCameraBehavior.cs" t="Include" />
+            <e p="NetworkCameraNetworkObject.cs" t="Include" />
+            <e p="PlayerBehavior.cs" t="Include" />
+            <e p="PlayerNetworkObject.cs" t="Include" />
+            <e p="TestBehavior.cs" t="Include" />
+            <e p="TestNetworkObject.cs" t="Include" />
+          </e>
+        </e>
+        <e p="Modules" t="Include">
+          <e p="Chat" t="Include">
+            <e p="ChatMaker.cs" t="Include" />
+            <e p="ChatManager.cs" t="Include" />
+          </e>
+          <e p="LobbySystem" t="Include">
+            <e p="LobbyManager.cs" t="Include" />
+            <e p="LobbyPlayer.cs" t="Include" />
+            <e p="LobbyPlayerItem.cs" t="Include" />
+          </e>
+          <e p="Stand Alone Chat" t="Include">
+            <e p="StandAloneChat.cs" t="Include" />
+          </e>
+          <e p="VOIP" t="Include">
+            <e p="VOIP.cs" t="Include" />
+            <e p="VoipStarter.cs" t="Include" />
+          </e>
+        </e>
+        <e p="Scripts" t="Include">
+          <e p="BMSUnityExtensions.cs" t="Include" />
+          <e p="InterpolateQuaternion.cs" t="Include" />
+          <e p="InterpolateVector2.cs" t="Include" />
+          <e p="InterpolateVector3.cs" t="Include" />
+          <e p="InterpolateVector4.cs" t="Include" />
+          <e p="Logging" t="Include">
+            <e p="BMSLogger.cs" t="Include" />
+          </e>
+          <e p="MainThreadManager.cs" t="Include" />
+          <e p="Multiplayer Menu" t="Include">
+            <e p="MultiplayerMenu.cs" t="Include" />
+          </e>
+          <e p="NetworkBehavior.cs" t="Include" />
+          <e p="NetworkManager.cs" t="Include" />
+          <e p="NetworkObjectFactory.cs" t="Include" />
+          <e p="NetworkObjectFactoryBase.cs" t="Include" />
+          <e p="Server Browser" t="Include">
+            <e p="ServerBrowser.cs" t="Include" />
+            <e p="ServerBrowserItem.cs" t="Include" />
+          </e>
+          <e p="UnityObjectMapper.cs" t="Include" />
+        </e>
+      </e>
+      <e p="AuthoritativeMovementExample.sln" t="IncludeFlat" />
+      <e p="Library" t="ExcludeRecursive" />
+      <e p="obj" t="ExcludeRecursive" />
+      <e p="packages" t="ExcludeRecursive" />
+      <e p="Temp" t="ExcludeRecursive">
+        <e p="bin" t="ExcludeRecursive" />
+      </e>
+    </e>
+  </component>
+</project>

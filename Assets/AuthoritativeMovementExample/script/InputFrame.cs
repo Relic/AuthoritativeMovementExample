@@ -2,14 +2,15 @@
 
 namespace AuthMovementExample
 {
-    /*
-     * A serializable frame containing the polled input state
-     * 
-     * Stored for prediction/reconciliation and sent to the server for processing
-     */
+    /// <summary>
+    /// Represents the state of a single frame of input
+    /// gathered from Unity's input manager
+    /// </summary>
     [Serializable]
     public class InputFrame
     {
+        public static InputFrame Empty { get { return new InputFrame(); } }
+        
         public uint frameNumber;
         public bool right;
         public bool down;
@@ -30,11 +31,9 @@ namespace AuthMovementExample
 
             // Check the inputs
             return i1.right == i2.right &&
-                i1.down == i2.down &&
-                i1.left == i2.left &&
-                i1.up == i2.up && 
-                i1.horizontal == i2.horizontal &&
-                i1.vertical == i2.vertical;
+                   i1.down == i2.down &&
+                   i1.left == i2.left &&
+                   i1.up == i2.up;
         }
 
         // Inequality operator overload - see above, but inverted
@@ -46,11 +45,9 @@ namespace AuthMovementExample
 
             // Check the inputs
             return i1.right != i2.right ||
-                i1.down != i2.down ||
-                i1.left != i2.left ||
-                i1.up != i2.up ||
-                i1.horizontal != i2.horizontal ||
-                i1.vertical != i2.vertical;
+                   i1.down != i2.down ||
+                   i1.left != i2.left ||
+                   i1.up != i2.up;
         }
 
         // Equals() should be identical to the equality operator
@@ -61,12 +58,10 @@ namespace AuthMovementExample
             else if (ReferenceEquals(this, null) || ReferenceEquals(obj, null)) return false;
 
             // Check the inputs
-            return right == ((InputFrame)obj).right &&
-                down == ((InputFrame)obj).down &&
-                left == ((InputFrame)obj).left &&
-                up == ((InputFrame)obj).up && 
-                horizontal == ((InputFrame)obj).horizontal &&
-                vertical == ((InputFrame)obj).vertical;
+            return right == ((InputFrame) obj).right &&
+                   down == ((InputFrame) obj).down &&
+                   left == ((InputFrame) obj).left &&
+                   up == ((InputFrame) obj).up;
         }
 
         // GetHashCode() should correspond to Equals() and the equality operator

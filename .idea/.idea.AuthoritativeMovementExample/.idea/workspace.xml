@@ -1,0 +1,440 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="0a3af275-b696-4be5-ac89-a6480065f841" name="Default" comment="">
+      <change afterPath="$PROJECT_DIR$/.idea/.idea.AuthoritativeMovementExample/.idea/contentModel.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/.idea.AuthoritativeMovementExample/.idea/indexLayout.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/.idea.AuthoritativeMovementExample/.idea/modules.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/.idea.AuthoritativeMovementExample/.idea/vcs.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/.idea.AuthoritativeMovementExample/riderModule.iml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/AuthoritativeMovementExample/script/ListExtensions.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/AuthoritativeMovementExample/script/ListExtensions.cs.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/AuthoritativeMovementExample/prefab/Player.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/AuthoritativeMovementExample/prefab/Player.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/AuthoritativeMovementExample/prefab/Player.prefab.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/AuthoritativeMovementExample/prefab/Player.prefab.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/AuthoritativeMovementExample/script/ByteArrayUtilities.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/AuthoritativeMovementExample/script/ByteArray.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/AuthoritativeMovementExample/script/ByteArrayUtilities.cs.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/AuthoritativeMovementExample/script/ByteArray.cs.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/AuthoritativeMovementExample/script/GameManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/AuthoritativeMovementExample/script/GameManager.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/AuthoritativeMovementExample/script/InputFrame.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/AuthoritativeMovementExample/script/InputFrame.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/AuthoritativeMovementExample/script/InputListener.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/AuthoritativeMovementExample/script/InputListener.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/AuthoritativeMovementExample/script/Player.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/AuthoritativeMovementExample/script/Player.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Bearded Man Studios Inc/Prefabs/NetworkManager.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Bearded Man Studios Inc/Prefabs/NetworkManager.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Bearded Man Studios Inc/Scenes/MultiplayerMenu.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Bearded Man Studios Inc/Scenes/MultiplayerMenu.unity" afterDir="false" />
+    </list>
+    <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
+    <option name="TRACKING_ENABLED" value="true" />
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileEditorManager">
+    <leaf>
+      <file leaf-file-name="Player.cs" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/Assets/AuthoritativeMovementExample/script/Player.cs">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="1522">
+              <caret line="250" column="22" selection-start-line="250" selection-start-column="22" selection-end-line="250" selection-end-column="22" />
+              <folding>
+                <marker date="1531434170308" expanded="true" signature="6:125" ph="..." />
+                <marker date="1531434170308" expanded="true" signature="156:10997" ph="{...}" />
+                <marker date="1531434170308" expanded="true" signature="163:346" ph="///&#9;&#9;The networked component of the Player object ... " />
+                <marker date="1531434170308" expanded="true" signature="387:10995" ph="{...}" />
+                <marker date="1531434170308" expanded="false" signature="402:625" ph="Inspector" />
+                <marker date="1531434170308" expanded="true" signature="1489:1695" ph="{...}" />
+                <marker date="1531434170308" expanded="true" signature="1743:1830" ph="{...}" />
+                <marker date="1531434170308" expanded="true" signature="1840:1976" ph="///&#9;&#9;Initialization method, sets all the initial parameters ... " />
+                <marker date="1531434170308" expanded="true" signature="2010:3036" ph="{...}" />
+                <marker date="1531434170308" expanded="true" signature="2061:2279" ph="{...}" />
+                <marker date="1531434170308" expanded="true" signature="2126:2265" ph="{...}" />
+                <marker date="1531434170308" expanded="true" signature="2420:2959" ph="{...}" />
+                <marker date="1531434170308" expanded="true" signature="2547:2945" ph="{...}" />
+                <marker date="1531434170308" expanded="true" signature="2792:2927" ph="{...}" />
+                <marker date="1531434170308" expanded="true" signature="3046:3189" ph="///&#9;&#9;Unity's Update method. ... " />
+                <marker date="1531434170308" expanded="true" signature="3219:4288" ph="{...}" />
+                <marker date="1531434170308" expanded="true" signature="3312:3413" ph="/* Set the networked fields in Update so we are ... */" />
+                <marker date="1531434170308" expanded="true" signature="3453:3778" ph="{...}" />
+                <marker date="1531434170308" expanded="true" signature="3524:3763" ph="{...}" />
+                <marker date="1531434170308" expanded="true" signature="3877:3937" ph="{...}" />
+                <marker date="1531434170308" expanded="true" signature="4047:4278" ph="{...}" />
+                <marker date="1531434170308" expanded="true" signature="4298:4477" ph="///&#9;&#9;Unity's FixedUpdate method ... " />
+                <marker date="1531434170308" expanded="true" signature="4504:6054" ph="{...}" />
+                <marker date="1531434170308" expanded="false" signature="4809:6044" ph="Netcode Logic" />
+                <marker date="1531434170308" expanded="true" signature="4963:5291" ph="{...}" />
+                <marker date="1531434170308" expanded="true" signature="5147:5277" ph="{...}" />
+                <marker date="1531434170308" expanded="true" signature="5717:5790" ph="{...}" />
+                <marker date="1531434170308" expanded="true" signature="5822:5943" ph="{...}" />
+                <marker date="1531434170308" expanded="true" signature="6064:6195" ph="/// Move the player's simulation (rigid body) ... " />
+                <marker date="1531434170308" expanded="true" signature="6239:6613" ph="{...}" />
+                <marker date="1531434170308" expanded="true" signature="6623:6729" ph="/// Detect and resolve collisions with a simple overlap check ... " />
+                <marker date="1531434170308" expanded="true" signature="6770:7555" ph="{...}" />
+                <marker date="1531434170308" expanded="true" signature="7273:7545" ph="{...}" />
+                <marker date="1531434170308" expanded="true" signature="7565:7714" ph="/// Player update composed of movement and collision processing ... " />
+                <marker date="1531434170308" expanded="true" signature="7766:8092" ph="{...}" />
+                <marker date="1531434170308" expanded="true" signature="7988:8082" ph="{...}" />
+                <marker date="1531434170308" expanded="true" signature="8102:8243" ph="///&#9;&#9;Reconcile inputs that haven't yet been ... " />
+                <marker date="1531434170308" expanded="true" signature="8276:9247" ph="{...}" />
+                <marker date="1531434170308" expanded="true" signature="8634:8903" ph="{...}" />
+                <marker date="1531434170308" expanded="true" signature="8731:8889" ph="{...}" />
+                <marker date="1531434170308" expanded="true" signature="8917:9122" ph="/* The error vector measures the difference between the predicted &amp; server updated sim position (this one) ... */" />
+                <marker date="1531434170308" expanded="true" signature="9257:9411" ph="///&#9;&#9;Interpolate away errors between the simulation ... " />
+                <marker date="1531434170308" expanded="true" signature="9447:10989" ph="{...}" />
+                <marker date="1531434170308" expanded="true" signature="9554:10806" ph="{...}" />
+                <marker date="1531434170308" expanded="true" signature="10092:10351" ph="/* Increase the timer - makes the weight smaller meaning more weight towards the simulation position ... */" />
+                <marker date="1531434170308" expanded="true" signature="10823:10979" ph="{...}" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+    </leaf>
+  </component>
+  <component name="FindInProjectRecents">
+    <findStrings>
+      <find>View.transform</find>
+    </findStrings>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="HighlightingSettingsPerFile">
+    <setting file="file://$PROJECT_DIR$/Assets/AuthoritativeMovementExample/script/InputFrame.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/AuthoritativeMovementExample/script/ByteArray.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/AuthoritativeMovementExample/script/GameManager.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/AuthoritativeMovementExample/script/Player.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/AuthoritativeMovementExample/script/InputListener.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/AuthoritativeMovementExample/script/ListExtensions.cs" root0="FORCE_HIGHLIGHTING" />
+  </component>
+  <component name="IdeDocumentHistory">
+    <option name="CHANGED_PATHS">
+      <list>
+        <option value="$PROJECT_DIR$/Assets/AuthoritativeMovementExample/script/ListExtensions.cs" />
+        <option value="$PROJECT_DIR$/Assets/AuthoritativeMovementExample/script/InputListener.cs" />
+        <option value="$PROJECT_DIR$/Assets/AuthoritativeMovementExample/script/InputFrame.cs" />
+        <option value="$PROJECT_DIR$/Assets/AuthoritativeMovementExample/script/ByteArray.cs" />
+        <option value="$PROJECT_DIR$/Assets/AuthoritativeMovementExample/script/GameManager.cs" />
+        <option value="$PROJECT_DIR$/Assets/AuthoritativeMovementExample/script/Player.cs" />
+      </list>
+    </option>
+  </component>
+  <component name="JsBuildToolGruntFileManager" detection-done="true" sorting="DEFINITION_ORDER" />
+  <component name="JsBuildToolPackageJson" detection-done="true" sorting="DEFINITION_ORDER" />
+  <component name="JsGulpfileManager">
+    <detection-done>true</detection-done>
+    <sorting>DEFINITION_ORDER</sorting>
+  </component>
+  <component name="ProjectFrameBounds" extendedState="6">
+    <option name="x" value="1912" />
+    <option name="y" value="-8" />
+    <option name="width" value="1936" />
+    <option name="height" value="1056" />
+  </component>
+  <component name="ProjectView">
+    <navigator currentView="SolutionExplorer" proportions="" version="1">
+      <foldersAlwaysOnTop value="true" />
+    </navigator>
+    <panes>
+      <pane id="SolutionExplorer">
+        <subPane>
+          <expand>
+            <path>
+              <item name="" type="13324e5d:SolutionExplorerViewPane$ProjectViewPaneTreeStructure$createRoot$1" />
+              <item name="AuthoritativeMovementExample (1 project)" type="977d5f41:SolutionExplorerNodeRider" />
+            </path>
+            <path>
+              <item name="" type="13324e5d:SolutionExplorerViewPane$ProjectViewPaneTreeStructure$createRoot$1" />
+              <item name="AuthoritativeMovementExample (1 project)" type="977d5f41:SolutionExplorerNodeRider" />
+              <item name="Assembly-CSharp" type="977d5f41:SolutionExplorerNodeRider" />
+            </path>
+            <path>
+              <item name="" type="13324e5d:SolutionExplorerViewPane$ProjectViewPaneTreeStructure$createRoot$1" />
+              <item name="AuthoritativeMovementExample (1 project)" type="977d5f41:SolutionExplorerNodeRider" />
+              <item name="Assembly-CSharp" type="977d5f41:SolutionExplorerNodeRider" />
+              <item name="AuthoritativeMovementExample" type="977d5f41:SolutionExplorerNodeRider" />
+            </path>
+            <path>
+              <item name="" type="13324e5d:SolutionExplorerViewPane$ProjectViewPaneTreeStructure$createRoot$1" />
+              <item name="AuthoritativeMovementExample (1 project)" type="977d5f41:SolutionExplorerNodeRider" />
+              <item name="Assembly-CSharp" type="977d5f41:SolutionExplorerNodeRider" />
+              <item name="AuthoritativeMovementExample" type="977d5f41:SolutionExplorerNodeRider" />
+              <item name="script" type="977d5f41:SolutionExplorerNodeRider" />
+            </path>
+          </expand>
+          <select />
+        </subPane>
+        <option name="show-file-system" value="false" />
+        <option name="show-all-items" value="false" />
+      </pane>
+      <pane id="UnityExplorer">
+        <subPane>
+          <expand>
+            <path>
+              <item name="" type="ad4990d8:FileSystemViewPaneBase$ProjectViewPaneTreeStructure$createRoot$1" />
+              <item name="AuthoritativeMovementExample" type="483dac07:UnityExplorerNode$Root" />
+            </path>
+            <path>
+              <item name="" type="ad4990d8:FileSystemViewPaneBase$ProjectViewPaneTreeStructure$createRoot$1" />
+              <item name="AuthoritativeMovementExample" type="483dac07:UnityExplorerNode$Root" />
+              <item name="" type="1045f7f1:UnityExplorerNode" />
+            </path>
+            <path>
+              <item name="" type="ad4990d8:FileSystemViewPaneBase$ProjectViewPaneTreeStructure$createRoot$1" />
+              <item name="AuthoritativeMovementExample" type="483dac07:UnityExplorerNode$Root" />
+              <item name="" type="1045f7f1:UnityExplorerNode" />
+              <item name="" type="1045f7f1:UnityExplorerNode" />
+            </path>
+          </expand>
+          <select />
+        </subPane>
+        <option name="show-hidden-items" value="false" />
+      </pane>
+      <pane id="Scratches" />
+    </panes>
+  </component>
+  <component name="PropertiesComponent">
+    <property name="Rider.ProjectViewActivator.IsNotFirstRun" value="true" />
+    <property name="WebServerToolWindowFactoryState" value="false" />
+  </component>
+  <component name="RunDashboard">
+    <option name="ruleStates">
+      <list>
+        <RuleState>
+          <option name="name" value="ConfigurationTypeDashboardGroupingRule" />
+        </RuleState>
+        <RuleState>
+          <option name="name" value="StatusDashboardGroupingRule" />
+        </RuleState>
+      </list>
+    </option>
+  </component>
+  <component name="RunManager">
+    <configuration name="Attach to Unity Editor" type="UNITY_DEBUG_RUN_CONFIGURATION" factoryName="Unity Debug" show_console_on_std_err="false" show_console_on_std_out="false" port="50000" address="localhost">
+      <option name="listenPortForConnections" value="false" />
+      <option name="pid" />
+    </configuration>
+  </component>
+  <component name="SvnConfiguration">
+    <configuration />
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="0a3af275-b696-4be5-ac89-a6480065f841" name="Default" comment="" />
+      <created>1531424222404</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1531424222404</updated>
+      <workItem from="1531424224802" duration="7118000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TimeTrackingManager">
+    <option name="totallyTimeSpent" value="7118000" />
+  </component>
+  <component name="TodoView">
+    <todo-panel id="selected-file">
+      <is-autoscroll-to-source value="true" />
+    </todo-panel>
+    <todo-panel id="all">
+      <are-packages-shown value="true" />
+      <is-autoscroll-to-source value="true" />
+    </todo-panel>
+  </component>
+  <component name="ToolWindowManager">
+    <frame x="1912" y="-8" width="1936" height="1056" extended-state="6" />
+    <editor active="true" />
+    <layout>
+      <window_info anchor="bottom" id="TODO" order="6" />
+      <window_info anchor="right" id="Errors In Solution" />
+      <window_info anchor="bottom" id="Event Log" side_tool="true" />
+      <window_info anchor="bottom" id="Unit Tests" />
+      <window_info anchor="bottom" id="Database Changes" show_stripe_button="false" />
+      <window_info anchor="bottom" id="Run" order="2" />
+      <window_info anchor="bottom" id="Version Control" />
+      <window_info anchor="bottom" id="Terminal" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.25" />
+      <window_info anchor="bottom" id="Docker" show_stripe_button="false" />
+      <window_info anchor="bottom" id="Unity" />
+      <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
+      <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
+      <window_info id="Favorites" side_tool="true" />
+      <window_info anchor="right" id="Database" />
+      <window_info anchor="bottom" id="Find" order="1" />
+      <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
+      <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
+      <window_info anchor="bottom" id="NuGet" />
+      <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
+      <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
+      <window_info anchor="bottom" id="Message" order="0" />
+      <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
+    </layout>
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="1" />
+  </component>
+  <component name="UnityProjectConfiguration" isUnityUI="true" />
+  <component name="VcsContentAnnotationSettings">
+    <option name="myLimit" value="2678400000" />
+  </component>
+  <component name="editorHistoryManager">
+    <entry file="file://$PROJECT_DIR$/Assets/AuthoritativeMovementExample/script/ByteArray.cs">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="510">
+          <caret line="32" column="31" selection-start-line="32" selection-start-column="31" selection-end-line="32" selection-end-column="31" />
+          <folding>
+            <marker date="1531433990143" expanded="false" signature="6:84" ph="..." />
+            <marker date="1531433990143" expanded="true" signature="115:1282" ph="{...}" />
+            <marker date="1531433990143" expanded="true" signature="122:206" ph="///&#9;Binary (De)serializer using BinaryFormatter ... " />
+            <marker date="1531433990143" expanded="true" signature="233:1280" ph="{...}" />
+            <marker date="1531433990143" expanded="true" signature="325:489" ph="///&#9;&#9;Serialize the object to a binary byte array ... " />
+            <marker date="1531433990143" expanded="true" signature="540:763" ph="{...}" />
+            <marker date="1531433990143" expanded="true" signature="648:753" ph="{...}" />
+            <marker date="1531433990143" expanded="true" signature="773:940" ph="///&#9;&#9;Deserialize a binary byte array to an object ... " />
+            <marker date="1531433990143" expanded="true" signature="995:1274" ph="{...}" />
+            <marker date="1531433990143" expanded="true" signature="1062:1264" ph="{...}" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Assets/AuthoritativeMovementExample/script/GameManager.cs">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="102">
+          <caret line="8" column="18" selection-start-line="8" selection-start-column="18" selection-end-line="8" selection-end-column="18" />
+          <folding>
+            <marker date="1531434001678" expanded="false" signature="6:133" ph="..." />
+            <marker date="1531434001678" expanded="true" signature="164:2498" ph="{...}" />
+            <marker date="1531434001678" expanded="true" signature="171:273" ph="/// The singleton Game object which oversees the whole game state ... " />
+            <marker date="1531434001678" expanded="true" signature="324:2496" ph="{...}" />
+            <marker date="1531434001678" expanded="true" signature="614:786" ph="{...}" />
+            <marker date="1531434001678" expanded="true" signature="842:2158" ph="{...}" />
+            <marker date="1531434001678" expanded="true" signature="936:1927" ph="{...}" />
+            <marker date="1531434001678" expanded="true" signature="1038:1520" ph="{...}" />
+            <marker date="1531434001678" expanded="true" signature="1232:1500" ph="{...}" />
+            <marker date="1531434001678" expanded="true" signature="1614:1912" ph="{...}" />
+            <marker date="1531434001678" expanded="true" signature="1944:2113" ph="{...}" />
+            <marker date="1531434001678" expanded="true" signature="2164:2318" ph="/* Force NetworkStart to happen - a work around for NetworkStart not happening ... */" />
+            <marker date="1531434001678" expanded="true" signature="2353:2490" ph="{...}" />
+            <marker date="1531434001678" expanded="true" signature="2420:2480" ph="{...}" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Assets/AuthoritativeMovementExample/script/InputFrame.cs">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-289">
+          <caret line="7" column="18" selection-start-line="7" selection-start-column="18" selection-end-line="7" selection-end-column="18" />
+          <folding>
+            <marker date="1531433953774" expanded="true" signature="44:2871" ph="{...}" />
+            <marker date="1531433953774" expanded="true" signature="51:183" ph="/// Represents the state of a single frame of input ... " />
+            <marker date="1531433953774" expanded="true" signature="230:2869" ph="{...}" />
+            <marker date="1531433953774" expanded="true" signature="609:754" ph="/* Equality operator overload - we want to check if input has changed ... */" />
+            <marker date="1531433953774" expanded="true" signature="823:1296" ph="{...}" />
+            <marker date="1531433953774" expanded="true" signature="1432:1905" ph="{...}" />
+            <marker date="1531433953774" expanded="true" signature="2019:2550" ph="{...}" />
+            <marker date="1531433953774" expanded="true" signature="2674:2863" ph="{...}" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Assets/AuthoritativeMovementExample/script/InputListener.cs">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="536">
+          <caret line="79" selection-start-line="79" selection-end-line="79" />
+          <folding>
+            <marker date="1531433940863" expanded="false" signature="6:160" ph="..." />
+            <marker date="1531433940863" expanded="true" signature="191:3087" ph="{...}" />
+            <marker date="1531433940863" expanded="true" signature="198:295" ph="/* Polls the client's input and send its to the server ... */" />
+            <marker date="1531433940863" expanded="true" signature="350:3085" ph="{...}" />
+            <marker date="1531433940863" expanded="false" signature="365:558" ph="Public Properties" />
+            <marker date="1531433940863" expanded="true" signature="728:855" ph="{...}" />
+            <marker date="1531433940863" expanded="true" signature="903:990" ph="{...}" />
+            <marker date="1531433940863" expanded="true" signature="1000:1172" ph="///&#9;&#9;Polling of inputs is handled in Update since they ... " />
+            <marker date="1531433940863" expanded="true" signature="1202:1913" ph="{...}" />
+            <marker date="1531433940863" expanded="true" signature="1319:1903" ph="{...}" />
+            <marker date="1531433940863" expanded="true" signature="1395:1885" ph="{...}" />
+            <marker date="1531433940863" expanded="true" signature="1923:2075" ph="///&#9;&#9;Store the input polled from Update and send it ... " />
+            <marker date="1531433940863" expanded="true" signature="2110:2619" ph="{...}" />
+            <marker date="1531433940863" expanded="true" signature="2329:2609" ph="{...}" />
+            <marker date="1531433940863" expanded="true" signature="2629:2764" ph="///&#9;&#9;Send input state to the server for processing ... " />
+            <marker date="1531433940863" expanded="true" signature="2818:3079" ph="{...}" />
+            <marker date="1531433940863" expanded="true" signature="2868:3069" ph="{...}" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Assets/AuthoritativeMovementExample/script/ListExtensions.cs">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="859">
+          <caret line="56" column="1" selection-start-line="56" selection-start-column="1" selection-end-line="56" selection-end-column="1" />
+          <folding>
+            <marker date="1531425334825" expanded="false" signature="6:47" ph="..." />
+            <marker date="1531425334825" expanded="true" signature="73:1322" ph="{...}" />
+            <marker date="1531425334825" expanded="true" signature="114:1320" ph="{...}" />
+            <marker date="1531425334825" expanded="true" signature="184:334" ph="{...}" />
+            <marker date="1531425334825" expanded="true" signature="385:612" ph="{...}" />
+            <marker date="1531425334825" expanded="true" signature="427:552" ph="{...}" />
+            <marker date="1531425334825" expanded="true" signature="665:827" ph="{...}" />
+            <marker date="1531425334825" expanded="true" signature="707:767" ph="{...}" />
+            <marker date="1531425334825" expanded="true" signature="879:1054" ph="{...}" />
+            <marker date="1531425334825" expanded="true" signature="921:994" ph="{...}" />
+            <marker date="1531425334825" expanded="true" signature="1140:1314" ph="{...}" />
+            <marker date="1531425334825" expanded="true" signature="1217:1277" ph="{...}" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Assets/AuthoritativeMovementExample/script/Player.cs">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1522">
+          <caret line="250" column="22" selection-start-line="250" selection-start-column="22" selection-end-line="250" selection-end-column="22" />
+          <folding>
+            <marker date="1531434170308" expanded="true" signature="6:125" ph="..." />
+            <marker date="1531434170308" expanded="true" signature="156:10997" ph="{...}" />
+            <marker date="1531434170308" expanded="true" signature="163:346" ph="///&#9;&#9;The networked component of the Player object ... " />
+            <marker date="1531434170308" expanded="true" signature="387:10995" ph="{...}" />
+            <marker date="1531434170308" expanded="false" signature="402:625" ph="Inspector" />
+            <marker date="1531434170308" expanded="true" signature="1489:1695" ph="{...}" />
+            <marker date="1531434170308" expanded="true" signature="1743:1830" ph="{...}" />
+            <marker date="1531434170308" expanded="true" signature="1840:1976" ph="///&#9;&#9;Initialization method, sets all the initial parameters ... " />
+            <marker date="1531434170308" expanded="true" signature="2010:3036" ph="{...}" />
+            <marker date="1531434170308" expanded="true" signature="2061:2279" ph="{...}" />
+            <marker date="1531434170308" expanded="true" signature="2126:2265" ph="{...}" />
+            <marker date="1531434170308" expanded="true" signature="2420:2959" ph="{...}" />
+            <marker date="1531434170308" expanded="true" signature="2547:2945" ph="{...}" />
+            <marker date="1531434170308" expanded="true" signature="2792:2927" ph="{...}" />
+            <marker date="1531434170308" expanded="true" signature="3046:3189" ph="///&#9;&#9;Unity's Update method. ... " />
+            <marker date="1531434170308" expanded="true" signature="3219:4288" ph="{...}" />
+            <marker date="1531434170308" expanded="true" signature="3312:3413" ph="/* Set the networked fields in Update so we are ... */" />
+            <marker date="1531434170308" expanded="true" signature="3453:3778" ph="{...}" />
+            <marker date="1531434170308" expanded="true" signature="3524:3763" ph="{...}" />
+            <marker date="1531434170308" expanded="true" signature="3877:3937" ph="{...}" />
+            <marker date="1531434170308" expanded="true" signature="4047:4278" ph="{...}" />
+            <marker date="1531434170308" expanded="true" signature="4298:4477" ph="///&#9;&#9;Unity's FixedUpdate method ... " />
+            <marker date="1531434170308" expanded="true" signature="4504:6054" ph="{...}" />
+            <marker date="1531434170308" expanded="false" signature="4809:6044" ph="Netcode Logic" />
+            <marker date="1531434170308" expanded="true" signature="4963:5291" ph="{...}" />
+            <marker date="1531434170308" expanded="true" signature="5147:5277" ph="{...}" />
+            <marker date="1531434170308" expanded="true" signature="5717:5790" ph="{...}" />
+            <marker date="1531434170308" expanded="true" signature="5822:5943" ph="{...}" />
+            <marker date="1531434170308" expanded="true" signature="6064:6195" ph="/// Move the player's simulation (rigid body) ... " />
+            <marker date="1531434170308" expanded="true" signature="6239:6613" ph="{...}" />
+            <marker date="1531434170308" expanded="true" signature="6623:6729" ph="/// Detect and resolve collisions with a simple overlap check ... " />
+            <marker date="1531434170308" expanded="true" signature="6770:7555" ph="{...}" />
+            <marker date="1531434170308" expanded="true" signature="7273:7545" ph="{...}" />
+            <marker date="1531434170308" expanded="true" signature="7565:7714" ph="/// Player update composed of movement and collision processing ... " />
+            <marker date="1531434170308" expanded="true" signature="7766:8092" ph="{...}" />
+            <marker date="1531434170308" expanded="true" signature="7988:8082" ph="{...}" />
+            <marker date="1531434170308" expanded="true" signature="8102:8243" ph="///&#9;&#9;Reconcile inputs that haven't yet been ... " />
+            <marker date="1531434170308" expanded="true" signature="8276:9247" ph="{...}" />
+            <marker date="1531434170308" expanded="true" signature="8634:8903" ph="{...}" />
+            <marker date="1531434170308" expanded="true" signature="8731:8889" ph="{...}" />
+            <marker date="1531434170308" expanded="true" signature="8917:9122" ph="/* The error vector measures the difference between the predicted &amp; server updated sim position (this one) ... */" />
+            <marker date="1531434170308" expanded="true" signature="9257:9411" ph="///&#9;&#9;Interpolate away errors between the simulation ... " />
+            <marker date="1531434170308" expanded="true" signature="9447:10989" ph="{...}" />
+            <marker date="1531434170308" expanded="true" signature="9554:10806" ph="{...}" />
+            <marker date="1531434170308" expanded="true" signature="10092:10351" ph="/* Increase the timer - makes the weight smaller meaning more weight towards the simulation position ... */" />
+            <marker date="1531434170308" expanded="true" signature="10823:10979" ph="{...}" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+  </component>
+</project>

@@ -45,15 +45,15 @@ MonoBehaviour:
   CubeForgeGameNetworkObject: []
   ExampleProximityPlayerNetworkObject:
   - {fileID: 1000012738253334, guid: feb25ecf90a8d8b4ab922a455249997b, type: 2}
+  GameManagerNetworkObject:
+  - {fileID: 1909901469931254, guid: 2d377f70144ac074287c53ff786949db, type: 2}
   InputListenerNetworkObject:
   - {fileID: 1420436103130830, guid: 3c12fefa12ce8bd4d9f3d990eb94af41, type: 2}
   NetworkCameraNetworkObject:
   - {fileID: 139536, guid: 661f29f0c0c86fa47b6015bd602d0ac6, type: 2}
   PlayerNetworkObject:
-  - {fileID: 1722133417664012, guid: 6b4acefbb25517e4a8f7b0b694e11548, type: 2}
+  - {fileID: 1760598452324474, guid: 6b4acefbb25517e4a8f7b0b694e11548, type: 2}
   TestNetworkObject: []
-  GameManagerNetworkObject:
-  - {fileID: 1909901469931254, guid: 2d377f70144ac074287c53ff786949db, type: 2}
   automaticScenes: 1
 --- !u!1001 &100100000
 Prefab:

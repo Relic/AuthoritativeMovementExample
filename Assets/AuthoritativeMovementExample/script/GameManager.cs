@@ -4,19 +4,18 @@ using System.Collections.Generic;
 
 namespace AuthMovementExample
 {
-    /*
-     * Singleton GameManager class which handles connection and disconnection of clients
-     */
+    /// <summary>
+    /// The singleton Game object which oversees the whole game state
+    /// </summary>
     public class GameManager : GameManagerBehavior
     {
         // Singleton instance
-        public static GameManager Instance = null;
+        public static GameManager Instance;
 
         // List of players
-        private Dictionary<uint, PlayerBehavior> _playerObjects = new Dictionary<uint, PlayerBehavior>();
-        public Dictionary<uint, PlayerBehavior> GetPlayers() { return _playerObjects; }
+        private readonly Dictionary<uint, PlayerBehavior> _playerObjects = new Dictionary<uint, PlayerBehavior>();
 
-        private bool _netStarted = false;
+        private bool _networkReady;
 
         private void Awake()
         {
@@ -24,25 +23,14 @@ namespace AuthMovementExample
             else if (Instance != this) Destroy(gameObject);
             DontDestroyOnLoad(Instance);
         }
-
-        // Force NetworkStart to happen - a work around for NetworkStart not happening
-        // for objects instantiated in scene in the latest version of Forge
-        private void FixedUpdate()
-        {
-            if (!_netStarted && networkObject != null)
-            {
-                _netStarted = true;
-                NetworkStart();
-            }
-        }
-
+        
         protected override void NetworkStart()
         {
             base.NetworkStart();
 
             if (NetworkManager.Instance.IsServer)
             {
-                NetworkManager.Instance.Networker.playerConnected += (player, sender) =>
+                NetworkManager.Instance.Networker.playerAccepted += (player, sender) =>
                 {
                     // Instantiate the player on the main Unity thread, get the Id of its owner and add it to a list of players
                     MainThreadManager.Run(() =>
@@ -63,8 +51,20 @@ namespace AuthMovementExample
             }
             else
             {
-                // This is a local client - it needs to list for input
+                // This is a local client - it needs to listen for input
                 NetworkManager.Instance.InstantiateInputListener();
+            }
+
+            _networkReady = true;
+        }
+		
+		// Force NetworkStart to happen - a work around for NetworkStart not happening
+        // for objects instantiated in scene in the latest version of Forge
+        private void FixedUpdate()
+        {
+            if (!_networkReady && networkObject != null)
+            {
+                NetworkStart();
             }
         }
     }
