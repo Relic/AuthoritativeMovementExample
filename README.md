@@ -9,7 +9,7 @@ Created using:
 
 An implementation of Authoritative Server Movement in Forge Networking Remastered.
 
-The example shows client-side prediction and reconciliation of inputs, and server-side authoritative processing (the server has the final say on game state).
+The example shows client-side prediction, reconciliation of inputs, error interpolation, and server-side authoritative processing (the server has the final say on game state).
 
 ## How to use it?
 
@@ -31,7 +31,7 @@ Also, some optimizations were done in both the Player and InputListener for reco
 
 Additionally, this build is deterministic. ~~and Physics2D (not sure about 3D, untested) rigid body physics work as far as I've tested so far.~~ **I've changed the build to decouple Unity's Physics2D. The build now uses a very simple collision detection & resolution system using the Collider2D.OverlapCollider and Collider2D.Distance methods and direct updating of the rigidbody's position. I did this so I could simulate physics on individual objects allowing all inputs in the queue to be processed at once server side.**
 
-(Outdated - will do more testing soon.) This build was tested by me both locally (to/from localhost) and with a server hosted on a Linux VPS with ~100ms ping from my location. Clumsy Lagswitch was used to do further network testing (especially for higher pings).
+**(Outdated - will do more testing soon.)** This build was tested by me both locally (to/from localhost) and with a server hosted on a Linux VPS with ~100ms ping from my location. Clumsy Lagswitch was used to do further network testing (especially for higher pings).
 
 ## Changelog
 
