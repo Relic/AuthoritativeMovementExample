@@ -2,7 +2,7 @@
 
 Created using:
 
-- Unity 2017.2.0f3
+- Unity 2017.2.0f3 (**uses 2017.2.5f1 as of 09/19/2019**)
 - Forge Networking Remastered - Github build
 
 ## What is this?
