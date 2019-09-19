@@ -1,7 +1,6 @@
 ﻿using BeardedManStudios.Forge.Networking.Generated;
 using System;
 using System.Linq;
-using ProjectSL.Util;
 using UnityEngine;
 
 namespace AuthMovementExample
@@ -166,7 +165,8 @@ namespace AuthMovementExample
                 Debug.LogError(e);
             }
             
-            _inputListener.FramesToReconcile.Add(_currentInput);
+            // Reconciliation only happens on the local client
+            if (_isLocalOwner && !networkObject.IsServer) _inputListener.FramesToReconcile.Add(_currentInput);
             #endregion
         }
 
@@ -178,8 +178,7 @@ namespace AuthMovementExample
         {
             // Move the player, clamping the movement so diagonals aren't faster
             Vector2 translation =
-                Vector2.ClampMagnitude(new Vector2(input.horizontal, input.vertical) * Speed * Time.fixedDeltaTime,
-                    Speed);
+                Vector2.ClampMagnitude(new Vector2(input.horizontal, input.vertical) * Speed * Time.fixedDeltaTime, Speed);
             _rigidBody.position += translation;
             _rigidBody.velocity = translation;
         }
@@ -267,10 +266,10 @@ namespace AuthMovementExample
                _errorTimer += Time.fixedDeltaTime;
 
                 // New error vector, always the difference between sim and view
-                _errorVector = _rigidBody.position - (Vector2) View.transform.position;
+                _errorVector = _rigidBody.position - (Vector2)View.transform.position;
 
                 // If the error is REALLY small we can discount the rest
-                if (!(_errorVector.magnitude < 0.00001f)) return;
+                if (_errorVector.magnitude >= 0.00001f) return;
                 _errorVector = Vector2.zero;
                 _errorTimer = 0.0f;
             }

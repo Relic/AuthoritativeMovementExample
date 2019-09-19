@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 
-namespace ProjectSL.Util
+namespace AuthMovementExample
 {
     public static class ListExtensions
     {
